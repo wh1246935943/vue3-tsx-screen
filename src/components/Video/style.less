@@ -1,0 +1,25 @@
+.container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .playHeader{
+    position: relative;
+    .playHeaderClose{
+      position: absolute;
+      top: 6px;
+      right: 4px;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  }
+  .playContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    video{
+      width: 800px;
+      height: 600px;
+    }
+  }
+}

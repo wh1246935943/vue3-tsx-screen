@@ -6,8 +6,11 @@ import Map from './Map';
 import { abnormalData, videoData, greenFangkongData, weatherData, realtimeMonitor } from './../data';
 import { initPlantingScale } from '../chart';
 import { setRollEffect } from '@/utils/utils'
+import Video from '@/components/Video/index';
 
 import './style.less';
+
+let videoInstance: Video | null = null;
 
 interface AbnormalItem {
   [key: string]: string
@@ -272,12 +275,12 @@ export default defineComponent(() => {
               </div>
             </Card>
             <Card title="监控视频" style="margin-top: 30px">
-              <div class="video-data">
+              <div class="vl-video-data">
                 {
                   videoData.slice(0, 4).map((item, index) => {
                     return (
                       <div key={index} class="sd-item">
-                        <video
+                        {/* <video
                           class={`map-3d-video map-3d-video_${index}`}
                           style="width: 100%; height: 100%;transform: scale(1.58, 1)"
                           src={item.src}
@@ -296,14 +299,19 @@ export default defineComponent(() => {
                             if (video.paused) return;
                             video.pause();
                           }}
-                        />
+                        /> */}
                         <img
                           class={`position-center play-icon_${index}`}
                           src={new URL(`@/assets/district-level/broadcast.png`, import.meta.url).href}
                           onClick={(e) => {
-                            const video = document.querySelector(`.map-3d-video_${index}`) as HTMLAudioElement;
-                            if (!video?.paused) return;
-                            video.play();
+                            // const video = document.querySelector(`.map-3d-video_${index}`) as HTMLAudioElement;
+                            // if (!video?.paused) return;
+                            // video.play();
+                            window?.videoInstance?.close?.();
+
+                            window.videoInstance = new Video();
+                            
+                            window.videoInstance.show({src: item.src});
                           }}
                         />
                         <img

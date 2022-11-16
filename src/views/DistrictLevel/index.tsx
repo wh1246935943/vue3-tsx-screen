@@ -3,6 +3,7 @@ import { defineComponent, reactive, onMounted, nextTick } from 'vue';
 import Skeleton from '@/components/Skeleton';
 import Card from '@/components/Card';
 import Map from './Map';
+import Video from '@/components/Video/index';
 import { counter } from '../count';
 import { statisticsData, videoData } from './../data';
 import { initResourceStatisticsChart } from '../chart';
@@ -37,9 +38,10 @@ export default defineComponent({
           countSize: parseInt((Math.random() * (1000 - 400 + 1) + 100).toString()),
           startValue: 0,
           callBack: (current) => {
-            // nextTick(() => {
+            const d = document.querySelector(`.sdid-value_${index}`) as HTMLElement;
+            if (d instanceof HTMLElement) {
               (document.querySelector(`.sdid-value_${index}`) as HTMLElement).innerHTML = current as unknown as string;
-            // })
+            }
           }
         })
       })
@@ -110,7 +112,7 @@ export default defineComponent({
                     videoData.map((item, index) => {
                       return (
                         <div key={index} class="sd-item">
-                          <video
+                          {/* <video
                             class={`map-3d-video map-3d-video_${index}`}
                             style="width: 100%; height: 100%"
                             src={item.src}
@@ -129,14 +131,19 @@ export default defineComponent({
                               if (video.paused) return;
                               video.pause();
                             }}
-                          />
+                          /> */}
                           <img
                             class={`position-center play-icon_${index}`}
                             src={new URL(`@/assets/district-level/broadcast.png`, import.meta.url).href}
                             onClick={(e) => {
-                              const video = document.querySelector(`.map-3d-video_${index}`) as HTMLAudioElement;
-                              if (!video?.paused) return;
-                              video.play();
+                              // const video = document.querySelector(`.map-3d-video_${index}`) as HTMLAudioElement;
+                              // if (!video?.paused) return;
+                              // video.play();
+                              window?.videoInstance?.close();
+
+                              window.videoInstance = new Video();
+
+                              window.videoInstance.show({src: item.src});
                             }}
                           />
                           <img
@@ -158,6 +165,7 @@ export default defineComponent({
               </Card>
             </div>
           </div>
+          {/* <Video src="https://www.runoob.com/try/demo_source/movie.mp4" /> */}
         </Skeleton>
       )
     }
