@@ -1,4 +1,4 @@
-import {onMounted, h, createApp, VueElement, type App} from 'vue'
+import { h, createApp, type App } from 'vue'
 import VideoComponent from './video';
 interface Props {
   src: string,
@@ -8,12 +8,13 @@ interface Props {
 class Video {
 
   private div: HTMLDivElement;
-  private vc: App<Element> | null;
+  private vc: App<Element>;
 
   constructor() {
     this.div = document.createElement('div');
-    this.vc = null
-  }
+    this.vc = createApp({});
+  };
+
   public show(props: Props) {
     this.div = document.createElement('div');
     const bc = document.querySelector('.basic-container') as HTMLElement;
@@ -24,7 +25,7 @@ class Video {
     this.vc.mount(this.div);
 
     setTimeout(() => {
-      window.addEventListener('click', closeVideoFn)
+      window.addEventListener('click', this.closeVideoFn)
     }, 100)
 
   }
@@ -32,17 +33,18 @@ class Video {
   public close() {
     (this.vc as App<Element>).mount(this.div as HTMLDivElement);
     this.div.remove();
-    window.removeEventListener('click', closeVideoFn)
+    window.removeEventListener('click', this.closeVideoFn)
+  };
+
+  closeVideoFn(e: Event) {
+
+    const videoNode = document.querySelector('#willesPlay');
+  
+    if (videoNode?.contains(e.target as Element)) return;
+  
+    window?.videoInstance?.close?.()
   }
 };
 
-function closeVideoFn(e: Event) {
-
-  const videoNode = document.querySelector('#willesPlay');
-
-  if (videoNode?.contains(e.target as Element)) return;
-
-  window?.videoInstance?.close?.()
-}
 
 export default Video

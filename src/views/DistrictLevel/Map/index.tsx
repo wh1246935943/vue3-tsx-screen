@@ -34,19 +34,19 @@ export default defineComponent({
       return (
         <div
           class="dl-center-map"
-          onMouseup={(e) => {
-            Object.assign(state.pointData[dragIndex], dragNode);
-            console.log(state.pointData);
-          }}
-          onMousemove={(e) => {
-            if (dragIndex === -1) return;
-            dragNode = {x: e.offsetX - 50, y: e.offsetY}
-            // (document.querySelector(`.qipao-${dragIndex}`) as SVGAElement).style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`
-            // (dragNode as SVGAElement).style.transform = `translate(${e.offsetY}px, ${e.offsetX}px);`
-            // state.pointData[dragIndex].x = e.offsetY;
-            // state.pointData[dragIndex].y = e.offsetX
-            // dragIndex = index
-          }}
+          // onMouseup={(e) => {
+          //   Object.assign(state.pointData[dragIndex], dragNode);
+          //   console.log(state.pointData);
+          // }}
+          // onMousemove={(e) => {
+          //   if (dragIndex === -1) return;
+          //   dragNode = {x: e.offsetX - 50, y: e.offsetY}
+          //   // (document.querySelector(`.qipao-${dragIndex}`) as SVGAElement).style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`
+          //   // (dragNode as SVGAElement).style.transform = `translate(${e.offsetY}px, ${e.offsetX}px);`
+          //   // state.pointData[dragIndex].x = e.offsetY;
+          //   // state.pointData[dragIndex].y = e.offsetX
+          //   // dragIndex = index
+          // }}
         >
           <div
             class="map-switch-bar"
