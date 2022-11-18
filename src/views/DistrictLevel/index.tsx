@@ -112,34 +112,11 @@ export default defineComponent({
                     videoData.map((item, index) => {
                       return (
                         <div key={index} class="sd-item">
-                          {/* <video
-                            class={`map-3d-video map-3d-video_${index}`}
-                            style="width: 100%; height: 100%"
-                            src={item.src}
-                            onPause={() => {
-                              const icon = document.querySelector(`.play-icon_${index}`) as HTMLElement;
-                              icon.style.display = ''
-                            }}
-                            onPlay={() => {
-                              const icon = document.querySelector(`.play-icon_${index}`) as HTMLElement;
-                              const preview = document.querySelector(`.preview-img_${index}`) as HTMLImageElement;
-                              icon.style.display = 'none';
-                              preview.style.display = 'none'
-                            }}
-                            onClick={(e) => {
-                              const video = document.querySelector(`.map-3d-video_${index}`) as HTMLVideoElement;
-                              if (video.paused) return;
-                              video.pause();
-                            }}
-                          /> */}
                           <img
                             class={`position-center play-icon_${index}`}
                             src={new URL(`@/assets/district-level/broadcast.png`, import.meta.url).href}
-                            onClick={(e) => {
-                              // const video = document.querySelector(`.map-3d-video_${index}`) as HTMLAudioElement;
-                              // if (!video?.paused) return;
-                              // video.play();
-                              window?.videoInstance?.close();
+                            onClick={() => {
+                              window.videoInstance?.close();
 
                               window.videoInstance = new Video();
 

@@ -3,7 +3,7 @@ import VideoComponent from './video';
 interface Props {
   src: string,
   title?: string
-}
+};
 
 class Video {
 
@@ -36,7 +36,7 @@ class Video {
     window.removeEventListener('click', this.closeVideoFn)
   };
 
-  closeVideoFn(e: Event) {
+  private closeVideoFn(e: Event) {
 
     const videoNode = document.querySelector('#willesPlay');
   
