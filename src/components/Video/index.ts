@@ -31,7 +31,7 @@ class Video {
   }
 
   public close() {
-    (this.vc as App<Element>).mount(this.div as HTMLDivElement);
+    this.vc.mount(this.div);
     this.div.remove();
     window.removeEventListener('click', this.closeVideoFn)
   };
