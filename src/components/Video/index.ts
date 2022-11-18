@@ -1,9 +1,5 @@
 import { h, createApp, type App } from 'vue'
-import VideoComponent from './video';
-interface Props {
-  src: string,
-  title?: string
-};
+import VideoComponent, { type VideoProps } from './video';
 
 class Video {
 
@@ -15,7 +11,7 @@ class Video {
     this.vc = createApp({});
   };
 
-  public show(props: Props) {
+  public show(props: VideoProps) {
     this.div = document.createElement('div');
     const bc = document.querySelector('.basic-container') as HTMLElement;
     bc.appendChild(this.div);
