@@ -10,8 +10,6 @@ import Video from '@/components/Video/index';
 
 import './style.less';
 
-let videoInstance: Video | null = null;
-
 interface AbnormalItem {
   [key: string]: string
 }
