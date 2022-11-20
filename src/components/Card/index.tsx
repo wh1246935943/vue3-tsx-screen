@@ -24,7 +24,7 @@ export default defineComponent({
     return () => {
       const { class: className, title } = props;
       return (
-        <div class={`naisi-card ${className}`}>
+        <div class={`doudou-card ${className}`}>
           <div class="nc-card-title">
             {
               typeof title === 'string' ? (

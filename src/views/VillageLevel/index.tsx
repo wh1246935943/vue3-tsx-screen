@@ -125,13 +125,13 @@ export default defineComponent(() => {
         <div class="district-level">
           <div class="dl-left">
             <Card title="安塘村简介">
-              <div class="naisi-row">
+              <div class="doudou-row">
                 <img
-                  class="naisi-col-5"
+                  class="doudou-col-5"
                   style="height: 195px"
                   src={new URL(`@/assets/district-level/pic-1.jpg`, import.meta.url).href}
                 />
-                <span class="text-indent naisi-col-6">
+                <span class="text-indent doudou-col-6">
                   孔店乡悠久的历史，深厚的文化积淀，留下了砂江坝商代遗址、钱鑫提督府遗址、刘备打草鞋、老虎洞等诸多人文景观，资源优势没有得到充分利用，发展潜力很大。
                 </span>
               </div>
@@ -144,19 +144,19 @@ export default defineComponent(() => {
                       return (
                         <div
                           key={item.id}
-                          class="naisi-row"
+                          class="doudou-row"
                           data-index={index}
                         >
-                          <div class="naisi-col-1">
+                          <div class="doudou-col-1">
                             <img
                               style="width: 21px;height: 21px"
                               src={getImageUrl(item.type)}
                             />
                           </div>
-                          <div class="naisi-col-8">
+                          <div class="doudou-col-8">
                             {item.content}
                           </div>
-                          <div class="naisi-col-4">
+                          <div class="doudou-col-4">
                             {item.time}
                           </div>
                         </div>
@@ -167,8 +167,8 @@ export default defineComponent(() => {
               </div>
             </Card>
             <Card title="绿色防控" style="margin-top: 30px;">
-              <div class="green-fangkong naisi-row">
-                <div class="naisi-col-6 gf-icon">
+              <div class="green-fangkong doudou-row">
+                <div class="doudou-col-6 gf-icon">
                   <img
                     src={getImageUrl('insect-bj1')}
                   />
@@ -179,12 +179,12 @@ export default defineComponent(() => {
                     src={getImageUrl('insect')}
                   />
                 </div>
-                <div class="naisi-col-6">
+                <div class="doudou-col-6">
                   {
                     greenFangkongData.map((item) => {
                       return (
-                        <div key={item.title} class="naisi-row">
-                          <div class="naisi-col-1">
+                        <div key={item.title} class="doudou-row">
+                          <div class="doudou-col-1">
                             <span
                               style={{
                                 background: item.color,
@@ -196,10 +196,10 @@ export default defineComponent(() => {
                               }}
                             />
                           </div>
-                          <div class="naisi-col-5" style="font-size: 17px">
+                          <div class="doudou-col-5" style="font-size: 17px">
                             {item.title}
                           </div>
-                          <div class="naisi-col-4" style={{ color: item.color }}>
+                          <div class="doudou-col-4" style={{ color: item.color }}>
                             {item.value}
                           </div>
                         </div>
@@ -211,11 +211,11 @@ export default defineComponent(() => {
             </Card>
             <Card title="种植规模" style="margin-top: 30px;">
               <div class="planting-scale">
-                <div class="naisi-row-sa">
-                  <div class="naisi-col-5">
+                <div class="doudou-row-sa">
+                  <div class="doudou-col-5">
                     园区总面积<span>2456</span>㎡
                   </div>
-                  <div class="naisi-col-5">
+                  <div class="doudou-col-5">
                     农作物类型<span>2456</span>种
                   </div>
                 </div>
@@ -228,7 +228,7 @@ export default defineComponent(() => {
           <Map />
           <div class="dl-right">
             <Card title="天气预报">
-              <div class="weather-forecast naisi-row">
+              <div class="weather-forecast doudou-row">
                 {
                   weatherData.map((item) => {
                     return (

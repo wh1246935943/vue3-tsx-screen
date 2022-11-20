@@ -37,7 +37,7 @@ export default defineComponent({
       const { dynamicData } = state;
       return (
         <div class="vl-center">
-          <div class="vlc-top-realtime-data naisi-row">
+          <div class="vlc-top-realtime-data doudou-row">
             {
               dynamicData.map((item, index) => {
                 return (
@@ -61,7 +61,7 @@ export default defineComponent({
               })
             }
           </div>
-          <div class="vlc-bottom naisi-row">
+          <div class="vlc-bottom doudou-row">
             <Card title="涨势分析">
               <div id="zhangshifenxi" />
             </Card>
